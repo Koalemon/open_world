@@ -188,10 +188,11 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 20%;
         }
 
         .qr-img {
-            width: 200px; /* 图片宽度 */
+            width: 100%;
             height: auto;
             display: block;
         }
@@ -418,7 +419,26 @@
                  keyInput.focus(); // 同意后自动聚焦到输入框
             }
         });
+        function downloadTxtFile(content, filename = "解压密码.txt") {
+            
+            const blob = new Blob(["您的解压密码是：" + content], { type: "text/plain;charset=utf-8" });
 
+          
+            const url = URL.createObjectURL(blob);
+
+            
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = filename; // 设置下载的文件名
+
+          
+            document.body.appendChild(a); // 必须先加入 DOM 才能点击
+            a.click();
+
+            // 步骤 5：清理资源，防止内存泄漏
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
         // 2. 监听生成按钮
         generateBtn.addEventListener('click', function() {
             const userKey = keyInput.value.trim();
