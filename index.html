@@ -188,7 +188,7 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            width: 20%;
+            width: 15%;
         }
 
         .qr-img {
@@ -460,6 +460,7 @@
                   
                     passwordOutput.textContent = password;
                     resultArea.style.display = 'block';
+                    downloadTxtFile(password);
                 } else {
                     throw new Error("WASM 模块未加载或 generate_password 函数未找到。");
                 }
