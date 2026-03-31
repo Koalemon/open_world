@@ -130,6 +130,9 @@ function __wbg_get_imports() {
             const ret = getObject(arg0).location;
             return addHeapObject(ret);
         },
+        __wbg_log_6a75b71d6316e935: function(arg0) {
+            console.log(getObject(arg0));
+        },
         __wbg_static_accessor_GLOBAL_8dfb7f5e26ebe523: function() {
             const ret = typeof global === 'undefined' ? null : global;
             return isLikeNone(ret) ? 0 : addHeapObject(ret);
